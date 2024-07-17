@@ -8,6 +8,14 @@ public class interactInstr : interactChar
     {
         shown = !shown;
         instr_panel.SetActive(shown);
+        opposite_inter_msg();
+    }
+    private void opposite_inter_msg()
+    {
+        if (shown)
+            hide_msg();
+        else
+            show_msg();
     }
 
     public void too_far()
@@ -15,9 +23,13 @@ public class interactInstr : interactChar
         if (shown)
             interact();
     }
+    protected override void OnTriggerStay(Collider other)
+    {
+        opposite_inter_msg();
+    }
     protected override void OnTriggerExit(Collider other)
     {
         too_far();
-        chara = null;
+        exit();
     }
 }

@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class objRotate : MonoBehaviour
 {
-    [SerializeField] private GameObject game_obj;
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.Rotate(new Vector3(0, 1, 0) * 1.5f);
+        transform.Rotate(new Vector3(0, 1, 0) * 100f * Time.deltaTime);
     }
 }
